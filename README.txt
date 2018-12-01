@@ -7,3 +7,7 @@ $ git submodule add https://github.com/foo/bar.git pack/plugins/start/bar
 or, for optionally loaded plugin:
 $ git submodule add https://github.com/foo/bar.git pack/plugins/opt/bar
 
+Installing additional filetype info:
+add to .vim/after/ftplugin/
+(goes in after/ftplugin/ so that it will not be overridden by other settings)
+
