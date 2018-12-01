@@ -11,3 +11,6 @@ Installing additional filetype info:
 add to .vim/after/ftplugin/
 (goes in after/ftplugin/ so that it will not be overridden by other settings)
 
+Filetypes also need to be detected correctly. Installing ftdetect plugins:
+put in .vim/ftdetect/
+
