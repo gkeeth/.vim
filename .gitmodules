@@ -1,6 +1,6 @@
-[submodule "pack/plugins/start/vim-commentary"]
-	path = pack/plugins/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary.git
 [submodule "pack/plugins/start/vim-apathy"]
 	path = pack/plugins/start/vim-apathy
 	url = https://github.com/tpope/vim-apathy.git
+[submodule "pack/plugins/start/vim-commentary"]
+	path = pack/plugins/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
