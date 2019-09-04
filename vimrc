@@ -26,7 +26,7 @@ set whichwrap+=<,>,h,l
 
 " show trailing spaces, tabs, and long lines
 set listchars=tab:\ \ ,trail:~,extends:>,precedes:<
-" set listchars=tab:Â»\ ,extends:Â¿,precedes:Â¿,nbsp:Â·,trail:Â·
+" set listchars=tab:»\ ,extends:¿,precedes:¿,nbsp:·,trail:·
 " set listchars=tab:..,trail:_,extends:>,precedes:<,nbsp:~
 " set showbreak=\\ " [bonus]
 set list
