@@ -1,1 +1,1 @@
-autocmd BufRead,BufNewFile *.adiv set filetype=adiv | set syntax=conf
+autocmd BufRead,BufNewFile *.adiv setlocal filetype=adiv | setlocal syntax=conf

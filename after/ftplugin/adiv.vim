@@ -1,2 +1,2 @@
 setlocal nowrap
-set syntax=conf
+" setlocal syntax=conf
