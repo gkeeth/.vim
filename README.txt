@@ -47,6 +47,13 @@ $ git clone --recursive https://github.com/gkeeth/.vim.git
 $ vim
 then :helptags ALL
 
+Alternatively, to clone submodules separately from main repository
+(or in case of forgetting to recursively clone at the start)
+$ git clone https://github.com/gkeeth/.vim.git
+$ git submodule update --init
+$ vim
+then :helptags ALL
+
 
 Updating .vim from remote:
 $ cd ~/.vim
