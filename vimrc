@@ -84,6 +84,9 @@ set lazyredraw
 set splitbelow
 set splitright
 
+" keep 10 lines between cursor and bottom/top of screen
+set scrolloff=10
+
 " }}}
 
 " custom bindings ---------------------------------------------------------{{{
@@ -131,7 +134,6 @@ vnoremap <leader>' <esc>a'<esc>`<i'<esc>`>ll
 
 " use jk to exit insert mode
 inoremap jk <esc>
-inoremap <esc> <nop>
 
 augroup filetype_markdown
     autocmd!
@@ -216,6 +218,12 @@ augroup filetype_python
     autocmd!
     " bind F9 to run current python script
     autocmd FileType python nnoremap <buffer> <F9> :w \| exec '!clear; python' shellescape(@%, 1)<CR>
+augroup END
+
+augroup filetype_lev_tim
+    autocmd!
+    " bind F5 to fix checksum
+    autocmd FileType lev,tim nnoremap <F5> :exec '!/proj/93k/com/timing_level_fix_checksum.pl ' . shellescape(@%, 1)<cr>
 augroup END
 
 " TODO: create augroup & binding for timing/levels files (applying checksum)
