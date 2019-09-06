@@ -19,4 +19,5 @@ function! SetAdivOptions()
     autocmd! adiv_options
     setlocal nowrap
     set syntax=conf
+    setlocal virtualedit+=all
 endfunction
