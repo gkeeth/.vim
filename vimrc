@@ -216,8 +216,10 @@ augroup END
 augroup filetype_python
     " clear previous autocommands
     autocmd!
-    " bind F9 to run current python script
-    autocmd FileType python nnoremap <buffer> <F9> :w \| exec '!clear; python' shellescape(@%, 1)<CR>
+    " bind F4 to run current python script
+    autocmd FileType python nnoremap <buffer> <F4> :w \| exec '!clear; python' shellescape(@%, 1)<CR>
+    " simpler version:
+    autocmd FileType python nnoremap <buffer> <F4> :!python %<cr>
 augroup END
 
 augroup filetype_lev_tim
