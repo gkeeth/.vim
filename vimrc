@@ -16,6 +16,17 @@ set showcmd
 set cursorline
 " highlight matching brace
 set showmatch
+" always show statusline
+set laststatus=2
+
+" define dummy FugitiveStatusline() function if fugitive isn't loaded
+if !exists('*FugitiveStatusline')
+    function! FugitiveStatusline()
+        return 'BLAH'
+    endfunction
+endif
+" set statusline (default plus git branch, from Fugitive docs)
+set statusline=%<%f\ %h%m%r%{FugitiveStatusline()}%=%-14.(%l,%c%V%)\ %P
 
 " hide buffers when they're abandoned
 set hid
