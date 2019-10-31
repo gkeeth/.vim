@@ -228,7 +228,25 @@ augroup filetype_lev_tim
     autocmd FileType lev,tim nnoremap <F5> :exec '!/proj/93k/com/timing_level_fix_checksum.pl ' . shellescape(@%, 1)<cr>
 augroup END
 
-" TODO: create augroup & binding for timing/levels files (applying checksum)
+augroup filetype_binl
+    autocmd!
+    command! HammersmithToHighgate
+                \ bufdo %s/wavetable 6/wavetable 10/ |
+                \ %s/(pa_08)/(BCLK_pa_08_pc_09)/ |
+                \ %s/(\zs\zepc_05/SYNC_/ |
+                \ %s/(\zs\zepc_01/SIO1_/ |
+                \ %s/(\zs\zepc_08/SIO4_/ |
+                \ %s/(\zs\zetwi0_scl/SCL_/ |
+                \ %s/(\zs\zetwi0_sda/SDA_/ |
+                \ %s/(\zs\zepa_01/MISO_/ |
+                \ %s/(\zs\zepa_02/MOSI_/ |
+                \ %s/(\zs\zepa_00/SCK_/ |
+                \ %s/(\zs\zepc_13/ADR1_/ |
+                \ %s/(\zs\zepc_14/ADR2_/ |
+                \ %s/(\zs\zepc_10/IRQ_/ |
+                \ %s/(hadc_vrefp)/(hadc0_vrefp)/
+    "autocmd FileType binl nnorem"ap <F4> 
+augroup END
 " }}}
 
 " ctags -------------------------------------------------------------------{{{
