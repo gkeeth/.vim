@@ -22,7 +22,7 @@ set laststatus=2
 " define dummy FugitiveStatusline() function if fugitive isn't loaded
 if !exists('*FugitiveStatusline')
     function! FugitiveStatusline()
-        return 'BLAH'
+        return ''
     endfunction
 endif
 " set statusline (default plus git branch, from Fugitive docs)
