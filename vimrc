@@ -131,6 +131,10 @@ nnoremap <leader>sf :source %<CR>
 " created.
 " See https://vi.stackexchange.com/questions/454/whats-the-simplest-way-to-strip-trailing-whitespace-from-all-lines-in-a-file
 nnoremap <leader>tw :let _s=@/<bar>%s/\s\+$//e<bar>let @/=_s<CR>
+
+" press <leader>s to spellcheck and <leader>S to stop
+nnoremap <leader>s :set spell spelllang=en_us<CR>
+nnoremap <leader>S :set nospell<CR>
 " }}}
 
 " SETTINGS FOR LEARN VIMSCRIPT THE HARD WAY -------------------------------{{{
@@ -181,7 +185,7 @@ nnoremap / /\v
 nnoremap ? ?\v
 
 " stop highlighting search results
-nnoremap <leader>S :nohlsearch<cr>
+" nnoremap <leader>S :nohlsearch<cr>
 
 " :grep for word under cursor (replaced by grep-operator.vim)
 " nnoremap <leader>g :silent execute "grep! -R " . shellescape(expand("<cWORD>")) . " ."<cr>:15copen<cr>
