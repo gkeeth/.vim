@@ -98,6 +98,11 @@ set splitright
 " keep 10 lines between cursor and bottom/top of screen
 set scrolloff=10
 
+" automatically resize splits when vim is resized
+augroup auto_resize
+    autocmd VimResized * wincmd =
+augroup END
+
 " }}}
 
 " custom bindings ---------------------------------------------------------{{{
