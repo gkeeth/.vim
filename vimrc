@@ -85,8 +85,14 @@ if exists("&breakindent")
     set showbreak=\ \ " comment so whitespace works
 endif
 
-" show autocomplete menu
+" show autocomplete menu for command-line
 set wildmenu
+
+" default completeopt with vim-lsc: menu, preview, menu, menuone, noinsert
+set completeopt-=preview
+
+" accept autocomplete suggestion with enter
+inoremap <expr> <CR> pumvisible() ? "<C-y>" : "<CR>"
 
 " don't redraw unnecessarily
 set lazyredraw
@@ -100,6 +106,7 @@ set scrolloff=10
 
 " automatically resize splits when vim is resized
 augroup auto_resize
+    autocmd!
     autocmd VimResized * wincmd =
 augroup END
 
@@ -291,6 +298,36 @@ command! CreateTagFile silent execute '!ctags -R .' <BAR> redraw! <BAR> echo 'Cr
 
 " press F2 to create ctags file
 nnoremap <silent> <F2> :CreateTagFile<CR>
+" }}}
+
+" language server ---------------------------------------------------------{{{
+let g:lsc_server_commands = {
+\  'c': {
+\    'command': 'ccls -log-file=/tmp/cc.log',
+\    'message_hooks': {
+\      'initialize': {
+\        'initializationOptions': {'cache': {'directory': '/tmp/ccls/cache'}},
+\        'rootUri': {m, p -> lsc#uri#documentUri(
+\          fnamemodify(findfile('compile_commands.json', expand('%:p') . ';'), ':p:h'))}
+\      },
+\    },
+\  },
+\  'cpp': {
+\    'command': 'ccls',
+\    'message_hooks': {
+\      'initialize': {
+\        'initializationOptions': {'cache': {'directory': '/tmp/ccls/cache'}},
+\        'rootUri': {m, p -> lsc#uri#documentUri(
+\          fnamemodify(findfile('compile_commands.json', expand('%:p') . ';'), ':p:h'))}
+\      },
+\    },
+\  },
+\}
+
+let g:lsc_auto_map = {'defaults': v:true}
+" highlight lscReference cterm=underline
+highlight lscCurrentParameter cterm=underline
+
 " }}}
 
 " setup fonts/window size for gvim ----------------------------------------{{{
