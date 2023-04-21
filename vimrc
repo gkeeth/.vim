@@ -303,12 +303,12 @@ nnoremap <silent> <F2> :CreateTagFile<CR>
 " language server ---------------------------------------------------------{{{
 let g:lsc_server_commands = {
 \  'c': {
-\    'command': 'ccls -log-file=/tmp/cc.log',
+\    'command': 'ccls',
 \    'message_hooks': {
 \      'initialize': {
 \        'initializationOptions': {'cache': {'directory': '/tmp/ccls/cache'}},
 \        'rootUri': {m, p -> lsc#uri#documentUri(
-\          fnamemodify(findfile('compile_commands.json', expand('%:p') . ';'), ':p:h'))}
+\          fnamemodify(findfile('.ccls', expand('%:p') . ';'), ':p:h'))}
 \      },
 \    },
 \  },
@@ -318,7 +318,7 @@ let g:lsc_server_commands = {
 \      'initialize': {
 \        'initializationOptions': {'cache': {'directory': '/tmp/ccls/cache'}},
 \        'rootUri': {m, p -> lsc#uri#documentUri(
-\          fnamemodify(findfile('compile_commands.json', expand('%:p') . ';'), ':p:h'))}
+\          fnamemodify(findfile('.ccls', expand('%:p') . ';'), ':p:h'))}
 \      },
 \    },
 \  },
