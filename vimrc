@@ -322,6 +322,9 @@ let g:lsc_server_commands = {
 \      },
 \    },
 \  },
+\  'python': {
+\   'command': 'pylsp',
+\  },
 \}
 
 let g:lsc_auto_map = {'defaults': v:true}
