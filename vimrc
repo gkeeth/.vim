@@ -323,7 +323,18 @@ let g:lsc_server_commands = {
 \    },
 \  },
 \  'python': {
-\   'command': 'pylsp',
+\    'command': 'pylsp',
+\    'workspace_config': {
+\      'pylsp': {
+\        'plugins': {
+\          'pycodestyle': {'enabled': v:false},
+\          'mccabe': {'enabled': v:false},
+\          'pyflakes': {'enabled': v:false},
+\          'flake8': {'enabled': v:true},
+\        },
+\        'configurationSources': ['flake8',],
+\      },
+\    },
 \  },
 \}
 
