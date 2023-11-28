@@ -236,8 +236,14 @@ endfunction
 augroup filetype_c
     " clear previous autocommands
     autocmd!
-    " set comment string for c files to //
-    autocmd FileType c setlocal commentstring=//\ %s
+    " set comment string for c/c++ files to //
+    autocmd FileType c,cpp setlocal commentstring=//\ %s
+    " set compiler (makeprg and errorformat) to gcc, which is usually
+    " appropriate (although not necessarily on macOS)
+    autocmd FileType c,cpp compiler gcc
+    " bind F5 to save all, run make on default target and open quickfix if
+    " there are any errors
+    autocmd FileType c,cpp nnoremap <buffer> <F5> :wall<bar>silent make<bar>cwindow<bar>redraw!<cr>
 augroup END
 
 augroup filetype_python
